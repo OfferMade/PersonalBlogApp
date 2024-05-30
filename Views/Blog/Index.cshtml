@@ -1,43 +1,21 @@
-@{
-    ViewData["Title"] = "Blog";
-}
+@model List<Entities.Models.Writing>
+
 <div class="container mt-3 text-center">
     <div class="row col-12 mb-3"><h1>Blog Yazıları</h1></div>
     <div class="row">
-        <div class="col-sm-12 col-md-6 mb-3">
-            <div class="card p-3 shadow">
-                <h5 class="card-title">.NET Core</h5>
-                <div class="card-text">.NET Core, Microsoft’un açık kaynaklı ve çapraz platform framework’üdür. ASP.NET Core ile web ve bulut uygulamaları geliştirilir. Mikro hizmet mimarisi ve Docker desteği ile dağıtık sistemler oluşturulabilir. Xamarin entegrasyonu sayesinde mobil uygulamalar, Windows Forms ve WPF desteği ile masaüstü uygulamaları geliştirilebilir. Unity ile oyun geliştirme ve IoT cihazları için de uygundur.</div>
-                <button type="button" class="btn btn-primary mt-3 col-4 mx-auto">Devamını Oku</button>
-                
-            </div>
-        </div>
-<div class="col-sm-12 col-md-6 mb-3">
-            <div class="card p-3 shadow">
-                <h5 class="card-title">SQL</h5>
-                <div class="card-text">SQL (Structured Query Language), veritabanı yönetimi ve manipülasyonu için kullanılan bir dildir. Veritabanlarından veri sorgulama, ekleme, güncelleme ve silme işlemlerini gerçekleştirir. SQL, ilişkisel veritabanı yönetim sistemlerinde (RDBMS) yaygın olarak kullanılır ve veri tabanlarıyla etkileşim kurmak için standart bir yöntem sağlar. Temel SQL komutları arasında SELECT, INSERT, UPDATE, DELETE ve JOIN bulunur. Ayrıca, SQL veri tanımlama (DDL) ve veri denetim (DCL) dilleri de içerir.</div>
-                <button type="button" class="btn btn-primary mt-3 col-4 mx-auto">Devamını Oku</button>
+        @foreach(Entities.Models.Writing wrt in Model)
+        {
+        
+        
+                <div class="col-sm-12 col-md-6 mb-3">
+                    <div class="card p-3 shadow">
+                        <h5 class="card-title">@wrt.WritingName</h5>
+                        <div class="card-text">@wrt.WritingDescription</div>
+                        <a type="button" class="btn btn-primary mt-3 col-4 mx-auto" href="/Blog/Get/@wrt.WritingId">Devamını Oku</a>
 
-            </div>
-        </div>
+                    </div>
+                </div>
+            
+        }
     </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6 mb-3">
-            <div class="card p-3 shadow">
-                <h5 class="card-title">Bootstrap</h5>
-                <div class="card-text">Bootstrap, responsive ve modern web siteleri oluşturmak için kullanılan popüler bir HTML, CSS ve JavaScript framework'üdür. Twitter tarafından geliştirilmiş ve açık kaynak olarak sunulmuştur. Kullanıcı arayüzü bileşenleri ve grid sistemi sayesinde hızlı ve tutarlı tasarımlar yapmayı kolaylaştırır. Mobil uyumlu yapısı, farklı cihazlarda tutarlı görünüm sağlar. Bootstrap, geniş tema ve eklenti desteğiyle web geliştirme süreçlerini hızlandırır.</div>
-                <button type="button" class="btn btn-primary mt-3 col-4 mx-auto">Devamını Oku</button>
-
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 mb-3">
-            <div class="card p-3 shadow">
-                <h5 class="card-title">HTML</h5>
-                <div class="card-text">HTML (HyperText Markup Language), web sayfalarını oluşturmak ve yapılandırmak için kullanılan standart bir işaretleme dilidir. Web tarayıcıları tarafından okunarak metin, görsel ve diğer içeriklerin görüntülenmesini sağlar. HTML, etiketler (tags) kullanarak içerik öğelerini tanımlar ve düzenler. Temel HTML etiketleri arasında `html`, `head`, `body`, `div`, `p`, ve `a` bulunur. HTML5, multimedya ve grafik desteği gibi ek özelliklerle modern web geliştirme ihtiyaçlarını karşılar.</div>
-                <button type="button" class="btn btn-primary mt-3 col-4 mx-auto">Devamını Oku</button>
-
-            </div>
-        </div>
-    </div>
-    
 </div>
