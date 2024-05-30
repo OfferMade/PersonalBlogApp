@@ -39,3 +39,11 @@ body {
   color: #00adb5;
   cursor: pointer;
 }
+
+.nav-link {
+    color: #00adb5;
+
+}
+.nav-link:hover{
+    color: white;
+}
