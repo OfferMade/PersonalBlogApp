@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonalBlogApp.Models;
+using Repositories;
 
 #nullable disable
 
 namespace PersonalBlogApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240530101402_WritingSeedData")]
-    partial class WritingSeedData
+    [Migration("20240531103051_Category")]
+    partial class Category
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,38 @@ namespace PersonalBlogApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-            modelBuilder.Entity("PersonalBlogApp.Models.Writing", b =>
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Framework"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Markup Language"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Design Helper"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.Writing", b =>
                 {
                     b.Property<int>("WritingId")
                         .ValueGeneratedOnAdd()
@@ -55,6 +86,12 @@ namespace PersonalBlogApp.Migrations
                             WritingId = 3,
                             WritingDescription = "denemeiçyazı3",
                             WritingName = "Deneme3"
+                        },
+                        new
+                        {
+                            WritingId = 4,
+                            WritingDescription = "denemeiçyazı4",
+                            WritingName = "Deneme4"
                         });
                 });
 #pragma warning restore 612, 618

@@ -2,28 +2,33 @@ using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PersonalBlogApp.Models;
+using Repositories;
+using Repositories.Contracts;
 
 namespace PersonalBlogApp.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly RepositoryContext _context;
-                                                        //DependencyInjection
-        public BlogController(RepositoryContext context)
+        private readonly IRepositoryManager _manager;
+
+        public BlogController(IRepositoryManager manager)
         {
-            _context = context;
+            _manager = manager;
         }
+
+        //DependencyInjection
+       
 
         public IActionResult Index()
         {
-            var model = _context.Writings.ToList();
+            var model = _manager.Writing.GetAllWritings(false);
             return View(model);
         }
 
         public IActionResult Get(int id)
         {
-            Writing writing = _context.Writings.FirstOrDefault(p=>p.WritingId.Equals(id));
-            return View(writing);
+            var model = _manager.Writing.GetOneWriting(id,false);
+            return View(model);
         }
     }
 }

@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonalBlogApp.Models;
+using Repositories;
 
 #nullable disable
 
 namespace PersonalBlogApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240530104708_WritingSeedData2")]
-    partial class WritingSeedData2
+    [Migration("20240531093159_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,7 @@ namespace PersonalBlogApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
-            modelBuilder.Entity("PersonalBlogApp.Models.Writing", b =>
+            modelBuilder.Entity("Entities.Models.Writing", b =>
                 {
                     b.Property<int>("WritingId")
                         .ValueGeneratedOnAdd()
