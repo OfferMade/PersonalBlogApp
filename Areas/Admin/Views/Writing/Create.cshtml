@@ -1,0 +1,30 @@
+﻿@model Entities.Models.Writing
+
+<div class="container">
+    <div class="text-center">
+        <div class="display-6">Create</div>
+    </div>
+
+    <form method="post" asp-action="Create">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="form-group my-3">
+            <label asp-for="WritingName">Başlık</label>
+            <input class="form-control" asp-for="WritingName" />
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="WritingDescription">Açıklama</label>
+            <input class="form-control" asp-for="WritingDescription" />
+        </div>
+        <div class="form-group my-3">
+            <div class="btn-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-save"></i>
+                    Kaydet
+                </button>
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="fa fa-list"></i>
+                    Yazılar</a>
+            </div>
+        </div>
+    </form>
+</div>

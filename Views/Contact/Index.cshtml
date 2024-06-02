@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Entities.Models.MailRequest
+@{
 	ViewData["Title"] = "İletişim";
 }
 <div class="container">
@@ -7,23 +8,20 @@
 			<h1 class="card-title">İletişim</h1>
 		</div>
 		<div class="card-body mb-3">
-			<form>
+			<form method="post">
 				<div class="form-group">
-					<label for="exampleInputEmail1">E-Posta</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-Posta girin">
-					<small id="emailHelp" class="form-text text-muted"></small>
+					<label>E-Posta Adresi</label>
+					<input type="text" asp-for="ReceiverMail" class="form-control" />
 				</div>
-				<div class="form-group mt-2">
-					<label for="name">İsim</label>
-					<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="İsim Girin">
-					<small id="emailHelp" class="form-text text-muted"></small>
+				<div class="form-group">
+					<label>Konu Başlığı</label>
+					<input type="text" asp-for="Subject" class="form-control" />
 				</div>
-				<div class="form-group mt-2">
-					<label for="exampleFormControlTextarea1">Mesaj</label>
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				<div class="form-group">
+					<label>Mesaj</label>
+					<textarea class="form-control" asp-for="Body"></textarea>
 				</div>
-
-				<button type="submit" class="btn btn-primary mt-2 shadow float-end">Gönder</button>
+				<button class="btn btn-primary mt-3 float-end shadow">Gönder</button>
 			</form>
 			<h4 class="mt-4">Diğer:</h4>
 			<p class="card-text text-light fs-5 mt-2">

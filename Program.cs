@@ -22,6 +22,8 @@ builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IWritingService, WritingManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
